@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    #box {
+        width: 200px;
+        height: 100px;
+        background: gray;
+    }
+
+    .active {
+        background: green;
+    }
+</style>
+<h1 id="txt">text</h1>
+<li class="color">hello</li>
+<li class="color">hello</li>
+<li class="color">hello</li>
+<li class="color">hello</li>
+
+<div id="container">
+</div>
+<img id="img" src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png" alt="">
+<div id="box">a</div>
+<button id="btn">buton</button>
+   
+<input type="text" name="" id="inp">
+<p id="rl"></p>
+   
+   <ul>
+    <li>Primul element</li>
+    <li>Element mijloc</li>
+    <li>Ultimul element</li>
+</ul>
+<button id="btn1">Apasa</button>
+
+<div id="box1">Box</div>
+
+<div id="container1"></div>
+
+<button id="btn3">adauga</button>
+
+<ul id="lista"></ul>
+
+
+
+   <script>
+    document.getElementById("txt").textContent = "schimbat"
+    let color = document.querySelectorAll(".color");
+    color.forEach((x)=>{
+        x.style.color = "red"
+    })
+    let p = document.createElement("p");
+    p.textContent = "p"
+    document.getElementById("container").appendChild(p);
+    document.getElementById("img").src = "https://static.vecteezy.com/system/resources/thumbnails/057/068/323/small/single-fresh-red-strawberry-on-table-green-background-food-fruit-sweet-macro-juicy-plant-image-photo.jpg"
+   
+    document.getElementById("box").className = "clasa"
+    p.remove();
+
+    document.getElementById("btn").addEventListener("click", function(){
+        txt.textContent = "Apasat"
+    })
+    document.getElementById("inp").addEventListener("input", function(){
+        document.getElementById("rl").textContent = document.getElementById("inp").value
+    })
+
+    let ul = document.querySelector("ul");
+    console.log("Primul copil:", ul.firstElementChild.textContent);
+    console.log("Ultimul copil:", ul.lastElementChild.textContent);
+
+    let btn1 = document.getElementById("btn1")
+    let box1 = document.getElementById("box1")
+
+    btn1.addEventListener("click", () => {
+        box1.classList.toggle("active")
+    })
+
+   let table = document.createElement("table");
+    table.border = "1";
+
+    for (let i = 0; i < 3; i++) {
+        let tr = document.createElement("tr");
+
+        for (let j = 0; j < 2; j++) {
+            let td = document.createElement("td")
+            td.textContent = `rand ${i + 1}, col ${j + 1}`
+            tr.appendChild(td)
+        }
+
+        table.appendChild(tr)
+    }
+
+    document.getElementById("container1").appendChild(table)
+
+    let btn3 = document.getElementById("btn3");
+    let lista = document.getElementById("lista");
+
+    let nr = 1;
+
+    btn3.addEventListener("click", () => {
+        let li = document.createElement("li")
+        li.textContent = "element " + nr
+        lista.appendChild(li)
+        nr++
+    });
+
+   </script>
+   <script src="main.js"></script>
+</body>
+</html>
